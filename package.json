@@ -4,8 +4,8 @@
     "description": "vue2 building environment",
     "main": "index.js",
     "scripts": {
-        "build": "gulp webpack --env production",
-        "dev": "gulp webpack --env development",
+        "b": "gulp webpack --env production",
+        "d": "gulp webpack --env development",
         "w": "gulp watch"
     },
     "author": "caoqiang",
