@@ -3,6 +3,7 @@ var gulp = require("gulp");
 var path = require("path");
 var extend = require('extend');
 var minimist = require('minimist');
+var glob = require('glob');
 
 //接收命令行传递的参数，可传递的参数production、development，默认是development
 var knownOptions = {
@@ -25,5 +26,9 @@ var config = {
     assets_sub_directory: '', //
     assets_public_path: '/' //编译后根目录
 };
+
+
+config['entries_path'] = [config.source + '/app/**/app.js', config.source + '/app/pages/**/*.*'];
+
 var envConfig = require('./gulp-tasks/config/index.config')(config); //获取配置
 require('gulp-task-loader')(extend(config, envConfig));

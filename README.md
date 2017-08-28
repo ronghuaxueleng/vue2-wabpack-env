@@ -14,7 +14,7 @@ npm install
 ```
 
 三、修改配置
-配置在gulpfile.js中，要修改的位置是下面这段配置的**source**和**dist**，以及**assets_custom_static**这三项配置
+配置在gulpfile.js中，要修改的位置是下面这段配置的**source**、**dist**和**entries_path**，以及**assets_custom_static**这四项配置
 ```javascript
 var config = {
     base: path.join(__dirname), //项目根目录
@@ -28,6 +28,8 @@ var config = {
     assets_sub_directory: '', //
     assets_public_path: '/' //编译后根目录
 };
+
+config['entries_path'] = [config.source + '/app/**/app.js', config.source + '/app/pages/**/*.*'];//要编译的实体文件
 ```
 
 四、执行
