@@ -17,6 +17,7 @@ var options = minimist(process.argv.slice(2), knownOptions);
 var config = {
     base: path.join(__dirname), //项目根目录
     env: options.env, //编译环境
+    exts: ['.jscript'],
     pkg: require('./package.json'), //package.json内容
     version: "0.01", //版本号（这里可以省略，直接从pkg中读取即可）
     source: path.join(__dirname, 'resources/assets'), //要编译的VUE源码根目录
@@ -28,7 +29,7 @@ var config = {
 };
 
 
-config['entries_path'] = [config.source + '/app/**/app.js', config.source + '/app/pages/**/*.*'];
+config['entries_path'] = [config.source + '/js/app/app.js'];
 
 var envConfig = require('./gulp-tasks/config/index.config')(config); //获取配置
 require('gulp-task-loader')(extend(config, envConfig));

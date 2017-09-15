@@ -20,8 +20,9 @@ module.exports = function() {
     rm(path.join(config[config.env]['assetsRoot'], config[config.env]['assetsSubDirectory']), err => {
         if (err) throw err
         webpack(webpackConfig, function(err, stats) {
+            console.log(err);
             spinner.stop()
-            if (err) throw err
+                // if (err) throw err
             process.stdout.write(stats.toString({
                 colors: true,
                 modules: false,
